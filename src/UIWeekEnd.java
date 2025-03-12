@@ -53,7 +53,7 @@ class AppWeekEnd {
 	boolean commande_faite = false;
 	while(!commande_faite) {
 	    System.out.println("Que voulez vous faire?");
-	    System.out.println("Q: quitter ta mère");
+	    System.out.println("Q: quitter blablabla");
 		System.out.println("P: pour afficher les personnes du weekend");
 	    String commande_brute = System.console().readLine();
 	    String commande = commande_brute.strip().toLowerCase();
@@ -65,7 +65,7 @@ class AppWeekEnd {
 			List<Personne> lesPersonnes = we.getAmis();
 			System.out.println("les Personnne du week end sont :");
 			for (Personne p : lesPersonnes){
-				System.out.println("\t" + p + "\n");
+				System.out.println("\t" + p );
 			}
 			commande_faite = true;
 		}
