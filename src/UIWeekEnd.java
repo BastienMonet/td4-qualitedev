@@ -55,23 +55,48 @@ class AppWeekEnd {
 	    System.out.println("Que voulez vous faire?");
 	    System.out.println("Q: quitter blablabla");
 		System.out.println("P: pour afficher les personnes du weekend");
+		System.out.println("D: pour afficher les depenses du weekend");
+		System.out.println("T: pour afficher le total des depenses");
+		System.out.println("M: pour afficher la moyenne des depenses");
 	    String commande_brute = System.console().readLine();
 	    String commande = commande_brute.strip().toLowerCase();
-	    if(commande.equals("q")) {
-			quitter = true;
-			commande_faite = true;
-	    }
-		if(commande.equals("p")) {
-			List<Personne> lesPersonnes = we.getAmis();
-			System.out.println("les Personnne du week end sont :");
-			for (Personne p : lesPersonnes){
-				System.out.println("\t" + p );
-			}
-			commande_faite = true;
+		switch(commande) {
+			case "q":
+				quitter = true;
+				commande_faite = true;
+				break;
+			case "p":
+				List<Personne> lesPersonnes = we.getAmis();
+				System.out.println("les Personnne du week end sont :");
+				for (Personne p : lesPersonnes){
+					System.out.println("\t" + p );
+				}
+				commande_faite = true;
+				break;
+			case "d":
+				List<Depense> lesDepenses = we.getDepenses();
+				System.out.println("les Depenses du week end sont :");
+				for (Depense d : lesDepenses){
+					System.out.println("\t" + d );
+				}
+				commande_faite = true;
+				break;
+			case "t":
+				System.out.println("le total des depenses s'élève à : " + we.totalDepenses());
+				commande_faite = true;
+				break;
+			
+			case "m":
+				System.out.println("la moyenne des depenses s'élève à : " + we.depensesMoyenne());
+				commande_faite = true;
+				break;
+				
+			
+			default:
+			System.out.println("Commande '" + commande_brute + "' invalide.");
+
+
 		}
-		 else {
-		System.out.println("Commande '" + commande_brute + "' invalide.");
-	    }
 	}
     }
 
