@@ -85,7 +85,7 @@ class AppWeekEnd {
     /// Affiche un message d'au revoir
     public void au_revoir() {
 	System.out.println("╭────────────────────────────────────────────────────────────────────────────────────╮");
-	System.out.println("│ Degage sale connard de merde, tu pue                                               │");
+	System.out.println("│ Degage sale connard de merde                                                       │");
 	System.out.println("╰────────────────────────────────────────────────────────────────────────────────────╯");
     }
 
