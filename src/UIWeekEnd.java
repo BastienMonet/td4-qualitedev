@@ -2,8 +2,6 @@ import java.util.List;
 
 class UIWeekEnd {    
     public static void main(String[] args) {
-	WeekEnd leWeekEnd = new WeekEnd();
-	AppWeekEnd app = new AppWeekEnd(leWeekEnd);
 
 	Personne pierre = new Personne("Durand","Pierre"); 
 	System.out.println(pierre.getNom()); 
@@ -16,6 +14,8 @@ class UIWeekEnd {
 	Depense d4 = new Depense(marie, 15, "vin");  
 	Depense d5 = new Depense(paul, 10, "vin"); 
 	WeekEnd we = new WeekEnd();  
+
+	AppWeekEnd app = new AppWeekEnd(we);
 	we.ajouterPersonne(pierre); 
 	we.ajouterPersonne(paul);
 	we.ajouterPersonne(marie);
@@ -53,20 +53,21 @@ class AppWeekEnd {
 	boolean commande_faite = false;
 	while(!commande_faite) {
 	    System.out.println("Que voulez vous faire?");
-	    System.out.println("Q: quitter");
+	    System.out.println("Q: quitter ta mère");
 		System.out.println("P: pour afficher les personnes du weekend");
 	    String commande_brute = System.console().readLine();
 	    String commande = commande_brute.strip().toLowerCase();
 	    if(commande.equals("q")) {
-		quitter = true;
-		commande_faite = true;
-	    } else
-		if (commande.equals("p")) {
+			quitter = true;
+			commande_faite = true;
+	    }
+		if(commande.equals("p")) {
 			List<Personne> lesPersonnes = we.getAmis();
 			System.out.println("les Personnne du week end sont :");
 			for (Personne p : lesPersonnes){
 				System.out.println("\t" + p + "\n");
 			}
+			commande_faite = true;
 		}
 		 else {
 		System.out.println("Commande '" + commande_brute + "' invalide.");
@@ -84,7 +85,7 @@ class AppWeekEnd {
     /// Affiche un message d'au revoir
     public void au_revoir() {
 	System.out.println("╭────────────────────────────────────────────────────────────────────────────────────╮");
-	System.out.println("│ Degage sale connard de merde                                                       │");
+	System.out.println("│ Degage sale connard de merde, tu pue                                               │");
 	System.out.println("╰────────────────────────────────────────────────────────────────────────────────────╯");
     }
 
